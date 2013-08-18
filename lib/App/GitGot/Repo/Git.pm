@@ -9,8 +9,6 @@ use Git::Wrapper;
 use Test::MockObject;
 use Try::Tiny;
 
-has '+type' => ( default => 'git' );
-
 has '_wrapper' => (
   is         => 'ro' ,
   isa        => 'Git::Wrapper' ,
@@ -27,6 +25,12 @@ has '_wrapper' => (
                       symbolic_ref
                     / ] ,
 );
+
+sub BUILDARGS {
+  my( $class,  $args ) = @_;
+  $args->{entry}{type} //= 'git';
+  return $args;
+}
 
 sub _build__wrapper {
   my $self = shift;
