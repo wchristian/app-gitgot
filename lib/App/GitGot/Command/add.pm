@@ -1,9 +1,10 @@
+use strict;
+use warnings;
+use 5.010;
 package App::GitGot::Command::add;
 # ABSTRACT: add a new repo to your config
 
-use Mouse;
-extends 'App::GitGot::Command';
-use 5.010;
+use parent 'App::GitGot::Command';
 
 use App::GitGot::Repo::Git;
 use Config::INI::Reader;

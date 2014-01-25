@@ -1,9 +1,9 @@
+use strict;
+use warnings;
+use 5.010;
 package App::GitGot::Command;
 # ABSTRACT: Base class for App::GitGot commands
-
-use Mouse;
-extends 'MouseX::App::Cmd::Command';
-use 5.010;
+use App::GitGot -command;
 
 use App::GitGot::Repo::Git;
 use File::Path 2.08         qw/ make_path /;
